@@ -15,7 +15,7 @@
   <body>
 
     <div class="container">
-      <h1>Chat</h1>
+      <h1><a href="/">Chat</a></h1>
 
       <%= @inner %>
     </div>

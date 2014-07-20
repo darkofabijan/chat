@@ -5,6 +5,6 @@
     <button type="button" class="btn btn-primary btn-lg btn-block">Ruby room (3 chatting)</button>
     <button type="button" class="btn btn-primary btn-lg btn-block">Elixir room (6 chatting)</button>
     <button type="button" class="btn btn-default btn-lg btn-block">Python room (empty)</button>
-    <button type="button" class="btn btn-success btn-lg btn-block">Add a new room</button>
+    <a href="<%= new_room_path %>" class="btn btn-success btn-lg btn-block">Add a new room</a>
   </div>
 </div>

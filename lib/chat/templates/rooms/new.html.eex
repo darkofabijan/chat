@@ -1,0 +1,9 @@
+<h2>New room</h2>
+
+<form action="/rooms" method="post">
+
+  <label for="room_name">Name:</label>
+  <input type="text" name="room_name" />
+  <input type="submit" value="Submit" />
+
+</form>
