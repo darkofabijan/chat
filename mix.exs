@@ -4,7 +4,7 @@ defmodule Chat.Mixfile do
   def project do
     [ app: :chat,
       version: "0.0.1",
-      elixir: "~> 0.14.2",
+      elixir: "~> 0.14.3",
       deps: deps ]
   end
 
@@ -12,7 +12,7 @@ defmodule Chat.Mixfile do
   def application do
     [
       mod: { Chat, [] },
-      applications: [:phoenix]
+      applications: [:phoenix, :ecto, :postgrex]
     ]
   end
 
@@ -24,7 +24,9 @@ defmodule Chat.Mixfile do
   defp deps do
     [
       {:phoenix, "0.3.1"},
-      {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true}
+      {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
+      {:postgrex, "0.5.3"},
+      {:ecto, "0.2.2"}
     ]
   end
 end
