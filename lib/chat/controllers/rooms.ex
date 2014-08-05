@@ -4,7 +4,9 @@ defmodule Chat.Controllers.Rooms do
   alias Chat.Room
 
   def index(conn, _params) do
-    render conn, "index"
+    rooms = Room.all
+
+    render conn, "index", rooms: rooms
   end
 
   def new(conn, _params) do

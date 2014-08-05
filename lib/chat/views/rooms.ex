@@ -1,8 +1,5 @@
 defmodule Chat.Views.Rooms do
   use Chat.Views
-
-  def new_room_path do
-    Chat.Router.new_room_path
-  end
+  import Chat.Router, only: [new_room_path: 0, room_path: 1]
 
 end
