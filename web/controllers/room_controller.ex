@@ -1,4 +1,4 @@
-defmodule Chat.Controllers.Rooms do
+defmodule Chat.RoomController do
   use Phoenix.Controller
   alias Chat.Repo
   alias Chat.Room

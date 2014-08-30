@@ -2,11 +2,12 @@ defmodule Chat.Views do
 
   defmacro __using__(_options) do
     quote do
-      use Phoenix.View, templates_root: unquote(Path.join([__DIR__, "templates"]))
+      use Phoenix.View
       import unquote(__MODULE__)
 
       # This block is expanded within all views for aliases, imports, etc
-      alias Chat.Views
+      import Chat.I18n
+      import Chat.Router.Helpers
     end
   end
 
