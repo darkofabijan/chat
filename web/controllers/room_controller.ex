@@ -23,4 +23,10 @@ defmodule Chat.RoomController do
     render conn, "create", room_name: room_name
   end
 
+  def show(conn, %{"id" => id}) do
+    room = Repo.get(Room, id)
+
+    render conn, "show", room_name: room.name
+  end
+
 end
