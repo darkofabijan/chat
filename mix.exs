@@ -14,8 +14,7 @@ defmodule Chat.Mixfile do
   def application do
     [
       mod: { Chat, [] },
-      #applications: [:phoenix, :cowboy, :logger, :ecto, :postgrex]
-      applications: [:phoenix, :cowboy, :logger]
+      applications: [:phoenix, :cowboy, :logger, :ecto, :postgrex]
     ]
   end
 
@@ -24,7 +23,7 @@ defmodule Chat.Mixfile do
       {:phoenix, github: "phoenixframework/phoenix"},
       {:cowboy, "~> 1.0"},
       {:postgrex, ">= 0.0.0"},
-      {:ecto, "~> 0.2.0"}
+      {:ecto, ">= 0.0.0"}
     ]
   end
 end

@@ -3,10 +3,10 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <%= for room <- @rooms do %>
-      <a href="<%= Chat.Router.room_path(:show, room.id) %>" class="btn btn-primary btn-lg btn-block">
+      <a href="<%= room_path(:show, room.id) %>" class="btn btn-primary btn-lg btn-block">
         <%= room.name %>
       </a>
     <% end %>
-    <a href="<%= Chat.Router.room_path(:new) %>" class="btn btn-success btn-lg btn-block">Add a new room</a>
+    <a href="<%= room_path(:new) %>" class="btn btn-success btn-lg btn-block">Add a new room</a>
   </div>
 </div>

@@ -16,14 +16,14 @@ defmodule Chat.RoomController do
   end
 
   def create(conn, %{"room_name" => room_name}) do
-    now = Ecto.DateTime.from_erl(:calendar.universal_time)
-    room = %Room{name: room_name, updated_at: now, created_at: now}
+    room = %Room{name: room_name}
     Repo.insert(room)
 
     render conn, "create", room_name: room_name
   end
 
-  def show(conn, %{"id" => id}) do
+  def show(conn, %{"id" => id_string}) do
+    {id, _} = Integer.parse(id_string)
     room = Repo.get(Room, id)
 
     render conn, "show", room_name: room.name
