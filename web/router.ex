@@ -1,5 +1,6 @@
 defmodule Chat.Router do
   use Phoenix.Router
+  use Phoenix.Router.Socket, mount: "/ws"
 
   pipeline :browser do
     plug :accepts, ~w(html)
@@ -16,5 +17,7 @@ defmodule Chat.Router do
     get "/", Chat.RoomController, :index
     resources "/rooms", Chat.RoomController
   end
+
+  channel "rooms", Chat.RoomChannel
 
 end
