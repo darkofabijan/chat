@@ -1,1 +1,5 @@
 Room name: <%= @room_name %>
+
+<div id="messages"></div>
+@<input id="username" type="text">
+:<input id="message-input" type="text">

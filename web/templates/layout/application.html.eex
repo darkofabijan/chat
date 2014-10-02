@@ -9,6 +9,9 @@
 
     <title>Hello Phoenix!</title>
     <link rel="stylesheet" href="/css/app.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script type="text/javascript" src="/js/phoenix.js"></script>
+    <script type="text/javascript" src="/js/room.js"></script>
   </head>
 
   <body>

@@ -4,8 +4,6 @@ defmodule Chat.Room do
 
   schema "rooms" do
     field :name,       :string
-    field :updated_at, :datetime
-    field :created_at, :datetime
   end
 
   def all do
