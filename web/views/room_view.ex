@@ -1,4 +1,4 @@
 defmodule Chat.RoomView do
-  use Chat.Views
+  use Chat.View
 
 end

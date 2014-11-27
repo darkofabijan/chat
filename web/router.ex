@@ -1,8 +1,20 @@
 defmodule Chat.Router do
   use Phoenix.Router
 
-  #get "/", Chat.PageController, :index, as: :pages
-  get "/", Chat.RoomController, :index, as: :root
-  resources "/rooms", Chat.RoomController
+  pipeline :browser do
+    plug :accepts, ~w(html)
+    plug :fetch_session
+  end
+
+  pipeline :api do
+    plug :accepts, ~w(json)
+  end
+
+  scope "/" do
+    pipe_through :browser # Use the default browser stack
+
+    get "/", Chat.RoomController, :index
+    resources "/rooms", Chat.RoomController
+  end
 
 end

@@ -3,6 +3,8 @@ defmodule Chat.RoomController do
   alias Chat.Repo
   alias Chat.Room
 
+  plug :action
+
   def index(conn, _params) do
     rooms = Room.all
 

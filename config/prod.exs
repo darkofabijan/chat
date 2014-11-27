@@ -10,14 +10,9 @@ use Mix.Config
 # for the key and cert
 
 config :phoenix, Chat.Router,
-  port: System.get_env("PORT"),
-  ssl: false,
-  host: "example.com",
-  cookies: true,
-  session_key: "_chat_key",
-  session_secret: "9L=L5Q+2RGY%IB8@*73L+P%D8+!Z72*(&)XT4@B5X19SD_T!H$$U145JFX11M@K(W_U$OW&*"
+  url: [host: "example.com"],
+  http: [port: System.get_env("PORT")],
+  secret_key_base: "BIQVauDlRbCRFbE/tKAS2EOwTCO7uc8sqdDt6VIV+8lPfYZghDXHRyNdVsS0F5dIBj+SajDilSkMaPY9eZmtcw=="
 
-config :logger, :console,
-  level: :info,
-  metadata: [:request_id]
-
+config :logger,
+  level: :info

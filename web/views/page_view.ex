@@ -1,4 +1,4 @@
 defmodule Chat.PageView do
-  use Chat.Views
+  use Chat.View
 
 end
