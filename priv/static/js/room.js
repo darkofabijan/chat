@@ -1,38 +1,31 @@
-$(function(){
+$(function() {
+  var form       = $("form");
+  var chatbox    = $("#chatbox");
+  var message    = $("#message");
+  var username   = $("#username");
   var socket     = new Phoenix.Socket("ws://" + location.host +  "/ws");
-  var $status    = $("#status");
-  var $messages  = $("#messages");
-  var $input     = $("#message-input");
-  var $username  = $("#username");
-  var sanitize   = function(html){ return $("<div/>").text(html).html(); }
 
-  var messageTemplate = function(message){
-    var username = sanitize(message.user || "anonymous");
-    var body     = sanitize(message.body);
-    return("<p><a href='#'>[" + username + "]</a>&nbsp; " + body +"</p>");
-  }
+  socket.join("room", "lobby", {}, function(channel) {
 
-  socket.join("rooms", "lobby", {}, function(chan){
-
-    $input.off("keypress").on("keypress", function(e) {
-      if (e.keyCode == 13) {
-        chan.send("new:msg", {user: $username.val(), body: $input.val()});
-        $input.val("");
-      }
+    form.on("submit", function(event) {
+        channel.send("new:msg", {username: username.val(),
+                                 message: message.val()});
+        message.val("");
+        message.focus();
+        return false;
     });
 
-    chan.on("join", function(message){
-      $status.text("joined");
+    channel.on("join", function(message){
+      chatbox.append("Joined");
     });
 
-    chan.on("new:msg", function(message){
-      $messages.append(messageTemplate(message));
-      scrollTo(0, document.body.scrollHeight);
+    channel.on("new:msg", function(data) {
+      chatbox.append("\n" + data.username + ":" + data.message);
+      //scrollTo(0, document.body.scrollHeight);
     });
 
-    chan.on("user:entered", function(msg){
-      var username = sanitize(msg.user || "anonymous");
-      $messages.append("<br/><i>[" + username + " entered]</i>");
+    channel.on("user:entered", function(data){
+      chatbox.append("Joined" + data.username);
     });
   });
 });

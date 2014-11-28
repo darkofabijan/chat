@@ -18,6 +18,6 @@ defmodule Chat.Router do
     resources "/rooms", Chat.RoomController
   end
 
-  channel "rooms", Chat.RoomChannel
+  channel "room", Chat.RoomChannel
 
 end
