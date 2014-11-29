@@ -14,8 +14,11 @@ defmodule Chat.RoomChannel do
     {:error, socket, :unauthorized}
   end
 
-  def event(socket, "new:msg", message) do
-    broadcast socket, "new:msg", message
+  def event(socket, "new:msg", data) do
+    broadcast socket, "new:msg", data
+
+    msg = %Chat.Message{room_id: 1, username: data["username"], body: data["message"]}
+    Chat.Repo.insert(msg)
 
     socket
   end

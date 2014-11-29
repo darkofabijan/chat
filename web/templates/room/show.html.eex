@@ -1,6 +1,9 @@
 Room name: <%= @room_name %>
 
 <pre id="chatbox" style="height: 200px;">
+  <%= for message <- @messages do %>
+    <%= message.username %>: <%= message.body %>
+  <% end %>
 </pre>
 
 <form>

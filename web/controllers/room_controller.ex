@@ -25,8 +25,12 @@ defmodule Chat.RoomController do
   def show(conn, %{"id" => id_string}) do
     {id, _} = Integer.parse(id_string)
     room = Repo.get(Room, id)
+    messages = Repo.all(room.messages)
 
-    render conn, "show.html", room_name: room.name
+    conn
+    |> assign(:room_name, room.name)
+    |> assign(:messages, messages)
+    |> render "show.html"
   end
 
 end

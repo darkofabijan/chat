@@ -3,7 +3,8 @@ defmodule Chat.Room do
   import Ecto.Query, only: [from: 2]
 
   schema "rooms" do
-    field :name,       :string
+    field :name, :string
+    has_many :messages, Chat.Message
   end
 
   def all do
