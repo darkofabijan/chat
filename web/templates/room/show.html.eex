@@ -9,6 +9,7 @@ Room name: <%= @room_name %>
 </pre>
 
 <form>
+  <input id="room_id" type="hidden" name="room_id" value="<%= @room_id %>">
   @<input id="username" type="text">
   :<input id="message" type="text">
   <input type="submit">

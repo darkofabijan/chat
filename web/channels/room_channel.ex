@@ -17,7 +17,8 @@ defmodule Chat.RoomChannel do
   def event(socket, "new:msg", data) do
     broadcast socket, "new:msg", data
 
-    msg = %Chat.Message{room_id: 1, username: data["username"], body: data["message"]}
+    {room_id, _} = Integer.parse(data["room_id"])
+    msg = %Chat.Message{room_id: room_id, username: data["username"], body: data["message"]}
     Chat.Repo.insert(msg)
 
     socket

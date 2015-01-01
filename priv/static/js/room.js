@@ -3,13 +3,15 @@ $(function() {
   var chatbox    = $("#chatbox");
   var message    = $("#message");
   var username   = $("#username");
+  var room_id    = $("#room_id");
   var socket     = new Phoenix.Socket("ws://" + location.host +  "/ws");
 
   socket.join("room", "lobby", {}, function(channel) {
 
     form.on("submit", function(event) {
         channel.send("new:msg", {username: username.val(),
-                                 message: message.val()});
+                                 message: message.val(),
+                                 room_id: room_id.val()});
         message.val("");
         message.focus();
         return false;

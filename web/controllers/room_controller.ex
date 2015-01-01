@@ -29,6 +29,7 @@ defmodule Chat.RoomController do
 
     conn
     |> assign(:room_name, room.name)
+    |> assign(:room_id, room.id)
     |> assign(:messages, messages)
     |> render "show.html"
   end
