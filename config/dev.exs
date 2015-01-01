@@ -6,3 +6,6 @@ config :chat, Chat.Endpoint,
 
 # Enables code reloading for development
 config :phoenix, :code_reloader, true
+
+config :app, :postgres,
+  url: "ecto://darko@localhost/chat_development"

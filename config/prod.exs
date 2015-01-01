@@ -7,3 +7,6 @@ config :chat, Chat.Endpoint,
 
 config :logger,
   level: :info
+
+config :app, :postgres,
+  url: System.get_env("DATABASE_URL")
