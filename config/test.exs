@@ -1,16 +1,4 @@
 use Mix.Config
 
-config :phoenix, Chat.Router,
-  port: System.get_env("PORT") || 4001,
-  ssl: false,
-  cookies: true,
-  session_key: "_chat_key",
-  session_secret: "9L=L5Q+2RGY%IB8@*73L+P%D8+!Z72*(&)XT4@B5X19SD_T!H$$U145JFX11M@K(W_U$OW&*"
-
-config :phoenix, :code_reloader,
-  enabled: true
-
-config :logger, :console,
-  level: :debug
-
-
+config :chat2, Chat.Endpoint,
+  http: [port: System.get_env("PORT") || 4001]

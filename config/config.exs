@@ -5,14 +5,12 @@
 # is restricted to this project.
 use Mix.Config
 
-# Configures the router
-config :phoenix, Chat.Router,
+# Configures the endpoint
+config :chat, Chat.Endpoint,
   url: [host: "localhost"],
   http: [port: System.get_env("PORT")],
-  secret_key_base: "BIQVauDlRbCRFbE/tKAS2EOwTCO7uc8sqdDt6VIV+8lPfYZghDXHRyNdVsS0F5dIBj+SajDilSkMaPY9eZmtcw==",
-  catch_errors: true,
-  debug_errors: false,
-  error_controller: Chat.PageController
+  secret_key_base: "/EXQfn3dX0zfICcueJJN7QjvP7SCnPMNhc9818TzVeduZM3P0rj3QrOvs3hehC6p",
+  debug_errors: false
 
 # Session configuration
 config :phoenix, Chat.Router,

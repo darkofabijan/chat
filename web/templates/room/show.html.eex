@@ -1,3 +1,5 @@
+<script type="text/javascript" src="/js/room.js"></script>
+
 Room name: <%= @room_name %>
 
 <pre id="chatbox" style="height: 200px;">
