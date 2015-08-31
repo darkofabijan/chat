@@ -6,6 +6,10 @@ $(function() {
   var room_id    = $("#room_id");
   var socket     = new Phoenix.Socket("ws://" + location.host +  "/ws");
 
+  function scrollToBottom() {
+    chatbox.scrollTop(chatbox.prop("scrollHeight"));
+  }
+
   socket.join("room", "lobby", {}, function(channel) {
 
     form.on("submit", function(event) {
@@ -18,16 +22,18 @@ $(function() {
     });
 
     channel.on("join", function(message){
-      chatbox.append("Joined");
+      chatbox.append("You have joined.\n");
+      scrollToBottom();
     });
 
     channel.on("new:msg", function(data) {
-      chatbox.append("\n" + data.username + ":" + data.message);
-      //scrollTo(0, document.body.scrollHeight);
+      chatbox.append(data.username + ": " + data.message + "\n");
+      scrollToBottom();
     });
 
     channel.on("user:entered", function(data){
-      chatbox.append("Joined" + data.username);
+      chatbox.append("User " + data.username + "just joined\n");
+      scrollToBottom();
     });
   });
 });

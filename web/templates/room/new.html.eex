@@ -1,9 +1,11 @@
-<h2>New room</h2>
+<h2>Pick a name for your new chat room</h2>
 
-<form action="/rooms" method="post">
+<form action="/rooms" method="post" class="form-inline">
 
-  <label for="room_name">Name:</label>
-  <input type="text" name="room_name" />
-  <input type="submit" value="Submit" />
+  <div class="form-group">
+    <input type="text" name="room_name" class="form-control" />
+  </div>
+
+  <button type="submit" class="btn btn-success">Start chatting</button>
 
 </form>

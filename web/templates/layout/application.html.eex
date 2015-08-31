@@ -16,17 +16,10 @@
   <body>
     <div class="container">
       <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li><a href="#">About</a></li>
-        </ul>
         <h1><a href="/">Chat</a></h1>
       </div>
 
       <%= @inner %>
-
-      <div class="footer">
-        Chat is awsm chat app built with Phoenix and Elixir.
-      </div>
 
     </div> <!-- /container -->
   </body>

@@ -17,9 +17,9 @@ defmodule Chat.RoomController do
 
   def create(conn, %{"room_name" => room_name}) do
     room = %Room{name: room_name}
-    Repo.insert(room)
+    %{:id => id} = Repo.insert(room)
 
-    render conn, "create.html", room_name: room_name
+    redirect conn, to: Chat.Router.Helpers.room_path(:show, id)
   end
 
   def show(conn, %{"id" => id_string}) do
