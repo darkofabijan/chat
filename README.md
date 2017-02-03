@@ -1,8 +1,11 @@
 [![Build Status](https://semaphoreapp.com/api/v1/projects/29d95c08-7c8d-4963-9d22-927ef6bce521/239321/badge.png)](https://semaphoreapp.com/darkofabijan/chat)
 
 
+---
 
+Hi Dunja, Milica & Marija!
 
+---
 
 
 
