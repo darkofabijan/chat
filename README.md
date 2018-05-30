@@ -3,7 +3,7 @@
 
 ---
 
-Hi Dunja, Milica & Marija!!!
+Hi
 
 ---
 
