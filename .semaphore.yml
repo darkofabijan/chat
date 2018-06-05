@@ -1,0 +1,66 @@
+version: "v3.0"
+name: bump, test blocks  file . Only fircxucusdt 2 blocccks will beh d  second  will fail.
+semaphore_image: standard
+blocks:
+  - name: "Stage 1"
+    build:
+      jobs:
+        - name: Job from 1st block
+          commands:
+            - env | grep "SEMAPHORE"
+            - env
+            - echo $SEMAPHORE_PIPELINE_ID
+            - echo "First job 1"
+            - echo "First job 2"
+            - echo "First job 3"
+            - cat /proc/cpuinfo
+        - name: 2nd job from 1st block
+          commands:
+            - echo "This is from second job"
+            - ls /etc
+        - name: Looooping
+          commands:
+            - for((i=1;i<=10000;i+=2)); do echo "Welcome $i times"; done
+            
+  - name: "Stage 2"
+    build:
+      jobs:
+        - name: Job from 1st block
+          commands:
+            - echo $SEMAPHORE_PIPELINE_ID
+            - echo "First job 1"
+            - echo "First job 2"
+            - echo "First job 3"
+        - name: 2nd job from 1st block
+          commands:
+            - echo "This is from second job"
+            - ls -lah /etc
+            
+  - name: "Stage 3"
+    build:
+      jobs:
+        - name: Job from 1st block
+          commands:
+            - echo $SEMAPHORE_PIPELINE_ID
+            - echo "First job 1"
+            - echo "First job 2"
+            - echo "First job 3"
+        - name: 2nd job from 1st block
+          commands:
+            - echo "This is from second job"
+            - ls /etc            
+            
+  - name: "Stage 4"
+    build:
+      jobs:
+        - name: Job from 2nd block
+          commands:
+            - echo $SEMAPHORE_PIPELINE_ID
+            - echo bar2
+  - name: "Stage 5"
+    build:
+      jobs:
+        - name: Job from 3rdd block
+          commands:
+            - echo foo3ds
+            - echo bar3dddds
