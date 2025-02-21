@@ -22,10 +22,9 @@ blocks:
       jobs:
         - name: "\U0001F7E2 Run Tests"
           commands:
-            - echo "Checking out code..."
-            - echo "Installing dependencies..."
-            - echo "Running test suite in container..."
-            - echo "Tests completed successfully!"
+            - clone
+            - cd chat
+            - ls -lah
   - name: "\U0001F433 Docker"
     dependencies:
       - "\U0001F9EA Test"
